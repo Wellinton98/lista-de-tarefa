@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 
 @Entity
 
-public class tarefa {
+public class Tarefa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,7 +18,7 @@ public class tarefa {
     private boolean concluida;
     private LocalDate dateCriacao;
 
-    public tarefa(){
+    public Tarefa(){
         this.dateCriacao = LocalDate.now();
         this.concluida = false;
     }
