@@ -8,6 +8,8 @@ public class TarefaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TarefaApplication.class, args);
+		System.out.println("Aplicação iniciada com sucesso!");
+		System.err.println("Acesso: http://localhost:8080");
 	}
 
 }

@@ -13,13 +13,14 @@ public class Tarefa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String titulo;
     private String descricao;
     private boolean concluida;
-    private LocalDate dateCriacao;
+    private LocalDate dataCriacao;
 
     public Tarefa(){
-        this.dateCriacao = LocalDate.now();
+        this.dataCriacao = LocalDate.now();
         this.concluida = false;
     }
 
@@ -55,13 +56,11 @@ public class Tarefa {
         this.concluida = concluida;
     }
 
-    public LocalDate getDateCriacao() {
-        return dateCriacao;
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
     }
     
-    public void setDateCriacao(LocalDate dateCriacao) {
-        this.dateCriacao = dateCriacao;
+    public void setDateCriacao(LocalDate dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
-
-    
 }
