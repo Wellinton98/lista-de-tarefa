@@ -39,4 +39,10 @@ public class TarefaController {
         tarefaRepository.save(tarefa);
         return "redirect:/";
     }
+    @GetMapping("/escluir")
+    public String excluirTarefa(@RequestParam Long id){
+        tarefaRepository.deleteById(id);
+        return "redirect:/";
+    }
+    
 }

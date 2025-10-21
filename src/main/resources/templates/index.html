@@ -14,6 +14,7 @@
             <input type="text" th:field="*{titulo}" placeholder="Título da Tarefa" required>
             <input type="text" th:field="*{descricao}" placeholder="descricao da Tarefa" required>
             <button type="submit">Adicionar</button>
+            
         </form>
         
         <h2>Tarefas Cadastradas</h2>
@@ -24,6 +25,7 @@
                     <th>Descrição</th>
                     <th>Status</th>
                     <th>Data</th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +37,7 @@
                     <td th:text="${tarefa.descricao}">Descrição da Tarefa</td>
                     <td th:text="${tarefa.concluida} ? 'Concluida' : 'Pendente'">Pendente</td>
                     <td th:text="${tarefa.dataCriacao}">Data de Criação</td>
+                    <td><a th:href="@{'/escluir'(id=${tarefa.id})}">Excluir</a></td>
                 </tr>
             </tbody>
         </table>
