@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tarefa</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Tarefa</h1>
+        
+        <form th:action="@{/editar}" th:object="${tarefa}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+
+            <label for="titulo">Título:</label>
+            <input type="text" th:field="*{titulo}" placeholder="Título da Tarefa" required>
+
+            <label for="descricao">Descrição:</label>
+            <input type="text" th:field="*{descricao}" placeholder="Descrição da Tarefa" required>
+
+            <button type="submit.salva">Salvar</button>
+        </form>
+
+        <br>
+        <a th:href="@{/}">Voltar para lista</a>
+    </div>
+</body>
+</html>

@@ -39,10 +39,49 @@ public class TarefaController {
         tarefaRepository.save(tarefa);
         return "redirect:/";
     }
-    @GetMapping("/escluir")
+    @GetMapping("/excluir")
     public String excluirTarefa(@RequestParam Long id){
         tarefaRepository.deleteById(id);
         return "redirect:/";
     }
+  @GetMapping("/concluir")
+public String concluirTarefa(@RequestParam Long id) {
+    Tarefa tarefa = tarefaRepository.findById(id).orElse(null);
+    if (tarefa != null) {
+        tarefa.setConcluida(true);
+        tarefaRepository.save(tarefa);
+    }
+    return "redirect:/";
+}
+
+ @GetMapping("/editar")
+public String editarTarefa(@RequestParam Long id, Model model) {
+    Tarefa tarefa = tarefaRepository.findById(id).orElse(null);
+    if (tarefa != null) {
+        model.addAttribute("tarefa", tarefa);
+        return "editar"; 
+    }
+    return "redirect:/";
+}   
+@PostMapping("/atualizar")
+public String atualizarTarefa(@ModelAttribute Tarefa tarefa) {
+    tarefaRepository.save(tarefa);
+    return "redirect:/";
+}
+    @PostMapping("/editar")
+public String salvarEdicao(@ModelAttribute Tarefa tarefa) {
+    tarefaRepository.save(tarefa);
+    return "redirect:/";
+}
+    @GetMapping("/exibirFormularioEdicao")
+public String exibirFormularioEdicao(@RequestParam Long id, Model model) {
+    Tarefa tarefa = tarefaRepository.findById(id).orElse(null);
+    if (tarefa != null) {
+        model.addAttribute("tarefa", tarefa);
+        return "editar"; 
+    
+}
+    return "redirect:/";
+}
     
 }

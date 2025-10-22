@@ -18,6 +18,7 @@ public class Tarefa {
     private String descricao;
     private boolean concluida;
     private LocalDate dataCriacao;
+    
 
     public Tarefa(){
         this.dataCriacao = LocalDate.now();
