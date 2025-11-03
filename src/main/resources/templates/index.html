@@ -47,11 +47,32 @@
             </tbody>
         </table>
         <div class="pagination">
-            <span>
-                Página <span th:text="${paginaTarefas.number + 1} ">1</span> de <span th:text="${paginaTarefas.totalPages}">1</span>
-            </span>
+        <div th:if="${paginaTarefas.totalPages > 1}">
+          <a
+            th:if="${!paginaTarefas.first}"
+            th:href="@{/(page=${paginaTarefas.number - 1})}"
+            class="btn"
+            >Anterior</a
+          >
+          <span
+            th:each="i : ${#numbers.sequence(0, paginaTarefas.totalPages - 1)}"
+          >
+            <a
+              th:href="@{/(page=${i})}"
+              th:text="${i + 1}"
+              th:classappend="${i == paginaTarefas.number} ? 'active' : ''"
+              style="margin: 0 5px"
+            ></a>
+          </span>
 
+          <a
+            th:if="${!paginaTarefas.last}"
+            th:href="@{/(page=${paginaTarefas.number + 1})}"
+            class="btn"
+            >Próxima</a
+          >
         </div>
+      </div>
     </div>
 </body>
 </html>

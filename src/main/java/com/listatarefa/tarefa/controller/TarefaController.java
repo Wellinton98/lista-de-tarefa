@@ -30,6 +30,7 @@ public class TarefaController {
         Page<Tarefa> paginaTarefa = tarefaRepository.findAll(configuracaoPagina);
 
         model.addAttribute("paginaTarefas", paginaTarefa);
+        model.addAttribute("paginaAtual", page);
         model.addAttribute("novaTarefa", new Tarefa());
         return "index";
 
@@ -83,5 +84,6 @@ public String exibirFormularioEdicao(@RequestParam Long id, Model model) {
 }
     return "redirect:/";
 }
+
     
 }
