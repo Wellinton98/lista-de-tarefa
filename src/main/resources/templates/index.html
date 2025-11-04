@@ -38,9 +38,7 @@
                     <td th:text="${tarefa.concluida} ? 'Concluida' : 'Pendente'">Pendente</td>
                     <td th:text="${tarefa.dataCriacao}">Data de Criação</td>
                     <td class="actions"><td><a th:href="@{/excluir/{id}(id=${tarefa.id})}">Excluir</a></td>
-
-                    <td><a th:href="@{'/editar'(id=${tarefa.id})}">Editar</a></td>
-                    
+                    <td class="editar"><a th:href="@{'/editar'(id=${tarefa.id})}">Editar</a></td>
                     <td><a th:if="${!tarefa.concluida}" th:href="@{'/concluir'(id=${tarefa.id})}">Concluída</a>
                     <span th:if="${tarefa.concluida}"></span></td>
 

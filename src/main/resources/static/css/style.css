@@ -80,7 +80,7 @@ div.pagination span {
     margin: 0 5px;
 }
 
-.escluir-button {
+.excluir-button {
     padding: 5px 10px;
     background-color: #e74c3c;
     color: white;
@@ -146,7 +146,7 @@ tr  {
     color: antiquewhite;
 }
 
-.btn-delete{
+.action-buttons {
     background-color: red;
     color: #fff;
     padding: 6px 12px;
